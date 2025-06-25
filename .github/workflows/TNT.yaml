@@ -59,12 +59,12 @@ jobs:
 
           nuclei -up && nuclei -ut
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
-          chmod 777 fuzzing-templates
+          # chmod 777 fuzzing-templates
           # cp fuzzing-templates/ /tmp/
           pwd && ls -al 
-          ls -al fuzzing-templates/
+          ls -al fuzzing-templates/sqli
           # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
-          nuclei -u http://testphp.vulnweb.com -t fuzzing-templates/ -rl 500 -o fuzz_out.txt
+          nuclei -u http://testphp.vulnweb.com -t fuzzing-templates/* -rl 500 -o fuzz_out.txt
         shell: bash
 
 
