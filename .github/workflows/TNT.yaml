@@ -59,6 +59,7 @@ jobs:
 
           nuclei -up && nuclei -ut
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
+          chmod 777 fuzzing-templates
           # cp fuzzing-templates/ /tmp/
           pwd && ls -al 
           ls -al fuzzing-templates/
