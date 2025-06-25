@@ -18,7 +18,7 @@ jobs:
           cache-dependency-path: go.bin  # 根据go.sum变化更新缓存
           
       - name: Setup Dependencies
-        run: sudo apt update && sudo apt-get install -y libpcap-dev gcc make git masscan &&  masscan -h
+        run: sudo apt update && sudo apt-get install -y libpcap-dev gcc make git masscan
 
       - name: Cache ProjectDiscovery tools
         uses: actions/cache@v3
@@ -57,12 +57,14 @@ jobs:
         shell: bash
 
 
-      - name: Running httpx for HTTP webservers probbing
+      - name: Running port scanning...
         run: |
-
-           httpx -l active_subdomains.txt -mc 100,101,200,201,204,301,302,304,400,403,404,500,502,503 -p 1-65535 -t 13000 | tee active_urls.txt
+          masscan -iL active_subdomains.txt -p1-65535 --rate=12000 -oL - | grep "open" | awk '{print $4":"$3}' | tee active_urls.txt
+          cat active_urls.txt
+          
+           #httpx -l active_subdomains.txt -mc 100,101,200,201,204,301,302,304,400,403,404,500,502,503 -p 1-65535 -t 13000 | tee active_urls.txt
            # httpx -l active_subdomains.txt -mc 100,101,200,201,204,301,302,304,400,403,404,500,502,503 -t 730 -o active_urls.txt
-           httpx -l active_subdomains.txt -title -t 230
+           # httpx -l active_subdomains.txt -title -t 230
         shell: bash
 
       - name: Running way/gau for getting all urls...
@@ -75,7 +77,6 @@ jobs:
           #naabu -l passive_subdomains.txt -p 1-65535 -c 2000 | tee naabu.txt
           #naabu -l passive_subdomains.txt -tp 1000 -c 3000 | tee naabu.txt
           ##cat naabu.txt | waybackurls | tee way_urls.txt
-
           # naabu -l active_urls.txt -p 1-65535 -c 20000 | httpx -title -t 230 | tee naa_port.txt
           
           cat active_urls.txt | gau --subs --blacklist png,jpg,gif,css --o ga_urls.txt
