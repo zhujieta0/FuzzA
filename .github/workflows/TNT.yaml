@@ -96,7 +96,7 @@ jobs:
         run: |
           nuclei -up && nuclei -ut
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
-          
+          pwd && ls -al
           # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
           nuclei -l all_urls.txt -t /home/runner/fuzzing-templates/ -rl 500 -o fuzz_out.txt
           nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
