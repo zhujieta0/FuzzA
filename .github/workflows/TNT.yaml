@@ -55,6 +55,13 @@ jobs:
           dnsx -l active_subdomains.txt -t 350 | tee -a active_subdomains.txt
           sort -u active_subdomains.txt
           cat active_subdomains.txt
+
+
+          nuclei -up && nuclei -ut
+          git clone https://github.com/projectdiscovery/fuzzing-templates.git
+          pwd && ls -al
+          # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
+          nuclei -u http://testphp.vulnweb.com -t /home/runner/work/SSS/SSS/fuzzing-templates/ -rl 500 -o fuzz_out.txt
         shell: bash
 
 
@@ -98,7 +105,7 @@ jobs:
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
           pwd && ls -al
           # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
-          nuclei -l all_urls.txt -t $(pwd)/fuzzing-templates/ -rl 500 -o fuzz_out.txt
+          nuclei -l all_urls.txt -t /home/runner/work/SSS/SSS/fuzzing-templates/ -rl 500 -o fuzz_out.txt
           nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
 
           nuclei -l active_urls.txt -t /home/runner/SSS/SSS/fuzzing-templates/ -rl 500 -o fuzz_out1.txt
