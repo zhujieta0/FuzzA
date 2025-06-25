@@ -1,0 +1,8 @@
+www.szscredit.com:443
+mail.szscredit.com:993
+mail.szscredit.com:25
+mail.szscredit.com:995
+mail.szscredit.com:110
+mail.szscredit.com:143
+www.szscredit.com:80
+mail.szscredit.com:465
