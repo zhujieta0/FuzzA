@@ -18,7 +18,7 @@ jobs:
           cache-dependency-path: go.bin  # 根据go.sum变化更新缓存
           
       - name: Setup Dependencies
-        run: sudo apt-get install -y libpcap-dev
+        run: sudo apt update && sudo apt-get install -y libpcap-dev gcc make git masscan &&  masscan -h
 
       - name: Cache ProjectDiscovery tools
         uses: actions/cache@v3
@@ -47,7 +47,6 @@ jobs:
       - name: Add Go bin to PATH  # 确保工具可被后续步骤访问
         run: echo "$GOPATH/bin" >> $GITHUB_PATH
 
-      # ... 其他步骤保持不变 ...
 
       - name: Running DNS enumeration...
         run: |
@@ -91,8 +90,8 @@ jobs:
         run: |
           nuclei -up && nuclei -ut
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
-          nuclei -l all_urls.txt -t fuzzing-templates/ -rl 50 -o fuzz_out.txt
-          nuclei -l all_urls.txt -s medium, high, critical -rl 50 -o hig_out.txt
+          nuclei -l all_urls.txt -t fuzzing-templates/ -rl 500 -o fuzz_out.txt
+          nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
           
         shell: bash
 
@@ -110,16 +109,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
-
-
-
-      # - name: Pull remote changes before push
-      #   run: |
-      #     git config pull.rebase true  # 启用变基模式避免多余合并提交
-      #     git pull origin ${{ github.ref_name }}  # 动态获取当前分支名
-      
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: ${{ github.ref_name }}
