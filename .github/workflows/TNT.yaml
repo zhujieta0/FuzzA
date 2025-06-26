@@ -62,9 +62,10 @@ jobs:
           # chmod 777 fuzzing-templates
           cp -r fuzzing-templates/ /home/runner/
           pwd && ls -al 
-          # ls -al fuzzing-templates/xss
+          echo '777777777777777777777'
+          ls -al /home/runner/fuzzing-templates
           # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
-          nuclei -u http://testphp.vulnweb.com -t /home/runner/fuzzing-templates/ -rl 500 -o fuzz_out.txt
+          nuclei -u http://testphp.vulnweb.com -t /home/runner/fuzzing-templates -rl 500 -o fuzz_out.txt
         shell: bash
 
 
