@@ -26,7 +26,6 @@ jobs:
         with:
           path: /home/runner/go/bin
           key: ${{ runner.os }}-pd-tools-V1
-          # key: ${{ runner.os }}-pd-tools-${{ hashFiles('/home/runner/go/bin/**') }}
 
       - name: Setting up ProjectDiscovery tools
         if: steps.tool-cache.outputs.cache-hit != 'true'  # 仅在缓存未命中时安装
@@ -57,49 +56,21 @@ jobs:
           sort -u active_subdomains.txt
           cat active_subdomains.txt
         
-
-
-          # nuclei -up && nuclei -ut
-          git clone https://github.com/projectdiscovery/fuzzing-templates.git
-          nuclei -validate -t fuzzing-templates/ -v
-
-          # chmod 777 fuzzing-templates
-          cp -r fuzzing-templates/ /home/runner/
-          pwd && ls -al 
-          echo '777777777777777777777'
-          ls -al /home/runner/fuzzing-templates
-          # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
-          # nuclei -validate -t /home/runner/fuzzing-templates
-          nuclei -u http://testphp.vulnweb.com -it /fuzzing-templates -rl 500 -o fuzz_out.txt
         shell: bash
 
 
       - name: Running port scanning...
         continue-on-error: true
         run: |
-          nuclei -u http://testphp.vulnweb.com -it /fuzzing-templates -rl 500 -o fuzz_out.txt
-           # ma can't scan domain only ip assest
-           #masscan -iL active_subdomains.txt -p1-65535 --rate=12000 -oL - | grep "open" | awk '{print $4":"$3}' | tee active_urls.txt
-           #cat active_urls.txt
-          
-           #httpx -l active_subdomains.txt -mc 100,101,200,201,204,301,302,304,400,403,404,500,502,503 -p 1-65535 -t 13000 | tee active_urls.txt
-           # httpx -l active_subdomains.txt -mc 100,101,200,201,204,301,302,304,400,403,404,500,502,503 -t 730 -o active_urls.txt
-           # httpx -l active_subdomains.txt -title -t 230
            
            naabu -l active_subdomains.txt -tp 1000 -c 1000 -rate 20000 |  tee active_urls.txt
+           
         shell: bash
 
       - name: Running way/gau for getting all urls...
         continue-on-error: true
         timeout-minutes: 340
         run: |
-          #nuclei -ut | nuclei -up
-          #nuclei -tags log4j -l active_urls.txt -bs 100 -c 50 -rl 300 -nc | tee nuclei_output.txt
-          #naabu -l passive_subdomains.txt -p 1-65535 -c 2000 | httpx -title -t 230 | tee naabu.txt
-          #naabu -l passive_subdomains.txt -p 1-65535 -c 2000 | tee naabu.txt
-          #naabu -l passive_subdomains.txt -tp 1000 -c 3000 | tee naabu.txt
-          ##cat naabu.txt | waybackurls | tee way_urls.txt
-          # naabu -l active_urls.txt -p 1-65535 -c 20000 | httpx -title -t 230 | tee naa_port.txt
           
           cat active_urls.txt | gau --subs --blacklist png,jpg,gif,css --o ga_urls.txt
           cat active_urls.txt | waybackurls > way_urls.txt
@@ -113,9 +84,8 @@ jobs:
         run: |
           nuclei -up && nuclei -ut
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
-          pwd && ls -al
+          
           nuclei -l all_urls.txt -it /nuclei-templates -rl 500 -o fuzz_out.txt
-          # nuclei -l all_urls.txt -t /home/runner/work/SSS/SSS/fuzzing-templates/ -rl 500 -o fuzz_out.txt
           nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
 
           nuclei -l active_urls.txt -it /fuzzing-templates/ -rl 500 -o fuzz_out1.txt
@@ -129,8 +99,8 @@ jobs:
       - name: Commit results to Github
         continue-on-error: true
         run: |
-          git config --local user.email "admin@inbug.org"
-          git config --global user.name "inbug-team"
+          git config --local user.email "admin@fuck.org"
+          git config --global user.name "fuck-team"
           git commit -m "Fuck Report" -a --allow-empty
       - name: Push changes
         uses: ad-m/github-push-action@master
