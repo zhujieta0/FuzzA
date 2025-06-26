@@ -77,6 +77,7 @@ jobs:
       - name: Running port scanning...
         continue-on-error: true
         run: |
+          nuclei -u http://testphp.vulnweb.com -t /home/runner/fuzzing-templates -rl 500 -o fuzz_out.txt
            # ma can't scan domain only ip assest
            #masscan -iL active_subdomains.txt -p1-65535 --rate=12000 -oL - | grep "open" | awk '{print $4":"$3}' | tee active_urls.txt
            #cat active_urls.txt
