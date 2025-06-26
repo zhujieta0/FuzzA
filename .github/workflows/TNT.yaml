@@ -69,15 +69,15 @@ jobs:
           echo '777777777777777777777'
           ls -al /home/runner/fuzzing-templates
           # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
-          nuclei -validate -t /home/runner/fuzzing-templates
-          # nuclei -u http://testphp.vulnweb.com -t /home/runner/fuzzing-templates -rl 500 -o fuzz_out.txt
+          # nuclei -validate -t /home/runner/fuzzing-templates
+          nuclei -u http://testphp.vulnweb.com -it /fuzzing-templates -rl 500 -o fuzz_out.txt
         shell: bash
 
 
       - name: Running port scanning...
         continue-on-error: true
         run: |
-          nuclei -u http://testphp.vulnweb.com -t /home/runner/fuzzing-templates -rl 500 -o fuzz_out.txt
+          nuclei -u http://testphp.vulnweb.com -it /fuzzing-templates -rl 500 -o fuzz_out.txt
            # ma can't scan domain only ip assest
            #masscan -iL active_subdomains.txt -p1-65535 --rate=12000 -oL - | grep "open" | awk '{print $4":"$3}' | tee active_urls.txt
            #cat active_urls.txt
@@ -114,11 +114,11 @@ jobs:
           nuclei -up && nuclei -ut
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
           pwd && ls -al
-          # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
-          nuclei -l all_urls.txt -t /home/runner/work/SSS/SSS/fuzzing-templates/ -rl 500 -o fuzz_out.txt
+          nuclei -l all_urls.txt -it /nuclei-templates -rl 500 -o fuzz_out.txt
+          # nuclei -l all_urls.txt -t /home/runner/work/SSS/SSS/fuzzing-templates/ -rl 500 -o fuzz_out.txt
           nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
 
-          nuclei -l active_urls.txt -t /home/runner/SSS/SSS/fuzzing-templates/ -rl 500 -o fuzz_out1.txt
+          nuclei -l active_urls.txt -it /fuzzing-templates/ -rl 500 -o fuzz_out1.txt
           nuclei -l active_urls.txt -s medium, high, critical -rl 500 -o hig_out1.txt
           
         shell: bash
