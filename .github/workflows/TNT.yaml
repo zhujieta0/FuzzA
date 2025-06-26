@@ -50,21 +50,26 @@ jobs:
 
       - name: Running DNS enumeration...
         run: |
+          
           rm -rf *_*.txt
           subfinder -dL domains.txt -config config/subfinder-config.yaml | dnsx -t 350 -o active_subdomains.txt
           dnsx -l active_subdomains.txt -t 350 | tee -a active_subdomains.txt
           sort -u active_subdomains.txt
           cat active_subdomains.txt
+        
 
 
-          nuclei -up && nuclei -ut
+          # nuclei -up && nuclei -ut
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
+          nuclei -validate -t fuzzing-templates/ -v
+
           # chmod 777 fuzzing-templates
           cp -r fuzzing-templates/ /home/runner/
           pwd && ls -al 
           echo '777777777777777777777'
           ls -al /home/runner/fuzzing-templates
           # nuclei -l all_urls.txt -t /home/runner/nuclei-templates -rl 500 -o fuzz_out.txt
+           nuclei -validate -t /home/runner/fuzzing-templates
           nuclei -u http://testphp.vulnweb.com -t /home/runner/fuzzing-templates -rl 500 -o fuzz_out.txt
         shell: bash
 
