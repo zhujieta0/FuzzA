@@ -85,7 +85,7 @@ jobs:
           nuclei -up && nuclei -ut
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
           
-          nuclei -l all_urls.txt -it /nuclei-templates -rl 500 -o fuzz_out.txt
+          nuclei -l all_urls.txt -it /fuzzing-templates -rl 500 -o fuzz_out.txt
           nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
 
           nuclei -l active_urls.txt -it /fuzzing-templates -rl 500 -o fuzz_out1.txt
@@ -99,7 +99,7 @@ jobs:
       - name: Commit results to Github
         continue-on-error: true
         run: |
-          git config --local user.email "admin@fuck.org"
+          git config --local user.email "admin@inbug.org"
           git config --global user.name "fuck-team"
           git commit -m "Fuck Report" -a --allow-empty
       - name: Push changes
