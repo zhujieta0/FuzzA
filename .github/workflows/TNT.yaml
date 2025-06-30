@@ -51,7 +51,8 @@ jobs:
         run: |
           
           rm -rf *_*.txt
-          subfinder -dL domains.txt -config config/subfinder-config.yaml | dnsx -t 350 -o active_subdomains.txt
+          # subfinder -dL domains.txt -config config/subfinder-config.yaml | dnsx -t 350 -o active_subdomains.txt
+          subfinder -dL domains.txt -config config/subfinder-config.yaml -o active_subdomains.txt
           dnsx -l active_subdomains.txt -t 350 | tee -a active_subdomains.txt
           sort -u active_subdomains.txt
           cat active_subdomains.txt
