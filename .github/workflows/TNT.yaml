@@ -40,6 +40,7 @@ jobs:
           go install -v github.com/tomnomnom/waybackurls@latest
           go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
           go install -v github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
+          go install -v github.com/xiecat/fofax/cmd/fofax@latest
         shell: bash
 
 
