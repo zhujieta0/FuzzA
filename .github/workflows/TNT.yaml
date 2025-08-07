@@ -88,11 +88,14 @@ jobs:
           nuclei -up && nuclei -ut && afrog
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
           
-          # nuclei -l all_urls.txt -it /fuzzing-templates -rl 500 -o fuzz_out.txt
-          # nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
+          nuclei -l active_subdomains.txt -it /fuzzing-templates -rl 800 -o fuzz_out.txt
+          nuclei -l active_subdomains.txt -s medium, high, critical -rl 800 -o hig_out.txt
 
-          nuclei -l active_urls.txt -it /fuzzing-templates -rl 500 -o fuzz_out1.txt
-          nuclei -l active_urls.txt -s medium, high, critical -rl 500 -o hig_out1.txt
+          nuclei -l active_urls.txt -it /fuzzing-templates -rl 800 -o fuzz_out1.txt
+          nuclei -l active_urls.txt -s medium, high, critical -rl 800 -o hig_out1.txt
+
+          afrog -T active_subdomains.txt -rl 900 | tee af_out.txt
+          afrog -T active_urls.txt -S medium, high, critical -rl 900 | tee af_out1.txt
           
         shell: bash
 
