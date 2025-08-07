@@ -40,7 +40,8 @@ jobs:
           go install -v github.com/tomnomnom/waybackurls@latest
           go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
           go install -v github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
-          go install -v github.com/xiecat/fofax/cmd/fofax@latest
+          go install -v github.com/zan8in/afrog/v3/cmd/afrog@latest
+          
         shell: bash
 
 
@@ -74,21 +75,21 @@ jobs:
         timeout-minutes: 340
         run: |
           
-          cat active_urls.txt | gau --subs --blacklist png,jpg,gif,css --o ga_urls.txt
-          cat active_urls.txt | waybackurls > way_urls.txt
-          if [ $(wc -l < ga_urls.txt) -le 20000 ] && [ $(wc -l < way_urls.txt) -le 20000 ]; then
-            sort -u ga_urls.txt way_urls.txt -o all_urls.txt
-          fi
+          # cat active_urls.txt | gau --subs --blacklist png,jpg,gif,css --o ga_urls.txt
+          # cat active_urls.txt | waybackurls > way_urls.txt
+          # if [ $(wc -l < ga_urls.txt) -le 20000 ] && [ $(wc -l < way_urls.txt) -le 20000 ]; then
+          #   sort -u ga_urls.txt way_urls.txt -o all_urls.txt
+          # fi
           
       - name: Running NucleiFuzing for vulnerability assessment
         continue-on-error: true
         timeout-minutes: 340
         run: |
-          nuclei -up && nuclei -ut
+          nuclei -up && nuclei -ut && afrog
           git clone https://github.com/projectdiscovery/fuzzing-templates.git
           
-          nuclei -l all_urls.txt -it /fuzzing-templates -rl 500 -o fuzz_out.txt
-          nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
+          # nuclei -l all_urls.txt -it /fuzzing-templates -rl 500 -o fuzz_out.txt
+          # nuclei -l all_urls.txt -s medium, high, critical -rl 500 -o hig_out.txt
 
           nuclei -l active_urls.txt -it /fuzzing-templates -rl 500 -o fuzz_out1.txt
           nuclei -l active_urls.txt -s medium, high, critical -rl 500 -o hig_out1.txt
