@@ -1,0 +1,19 @@
+[mysql-dump] [http] [medium] http://rest.vulnweb.com:80/db.sql [paths="/db.sql"]
+[phpinfo-files] [http] [low] http://rest.vulnweb.com:80/info.php ["7.1.26"] [paths="/info.php"]
+[missing-sri] [http] [info] http://rest.vulnweb.com:80 ["https://fonts.googleapis.com/css?family=Nunito:200,600"]
+[waf-detect:apachegeneric] [http] [info] http://rest.vulnweb.com:80
+[composer-config:composer.json] [http] [info] http://rest.vulnweb.com:8081/composer.json
+[composer-config:composer.json] [http] [info] http://rest.vulnweb.com:8081/vendor/composer/installed.json
+[options-method] [http] [info] http://rest.vulnweb.com:8081 ["GET"]
+[options-method] [http] [info] http://rest.vulnweb.com:80 ["GET"]
+[http-missing-security-headers:x-frame-options] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:content-security-policy] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:permissions-policy] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:x-content-type-options] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:referrer-policy] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:clear-site-data] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://rest.vulnweb.com:80
+[http-missing-security-headers:strict-transport-security] [http] [info] http://rest.vulnweb.com:80
