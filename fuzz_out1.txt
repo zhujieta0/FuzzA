@@ -1,75 +1,141 @@
-[waf-detect:nginxgeneric] [http] [info] https://szrsa.sutpc.com:8443
-[ssh-auth-methods] [javascript] [info] szrsa.sutpc.com:22 ["["publickey","gssapi-keyex","gssapi-with-mic","password"]"]
-[ssh-server-enumeration] [javascript] [info] szrsa.sutpc.com:22 ["SSH-2.0-OpenSSH_8.0"]
-[ssh-password-auth] [javascript] [info] szrsa.sutpc.com:22
-[ssh-sha1-hmac-algo] [javascript] [info] szrsa.sutpc.com:22
-[ssh-weakkey-exchange-algo] [javascript] [low] szrsa.sutpc.com:22
-[ssh-cbc-mode-ciphers] [javascript] [low] szrsa.sutpc.com:22
-[deprecated-tls:tls_1.1] [ssl] [info] qn.sutpc.com:443 ["tls11"]
-[deprecated-tls:tls_1.1] [ssl] [info] szrsa.sutpc.com:8443 ["tls11"]
-[deprecated-tls:tls_1.0] [ssl] [info] qn.sutpc.com:443 ["tls10"]
-[deprecated-tls:tls_1.0] [ssl] [info] szrsa.sutpc.com:8443 ["tls10"]
-[tls-version] [ssl] [info] qn.sutpc.com:443 ["tls10"]
-[tls-version] [ssl] [info] szrsa.sutpc.com:8443 ["tls10"]
-[weak-cipher-suites:tls-1.0] [ssl] [low] qn.sutpc.com:443 ["[tls10 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA]"]
-[weak-cipher-suites:tls-1.0] [ssl] [low] szrsa.sutpc.com:8443 ["[tls10 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA]"]
-[deprecated-tls:ssl_3.0] [ssl] [info] szrsa.sutpc.com:8443 ["ssl30"]
-[weak-cipher-suites:tls-1.1] [ssl] [low] qn.sutpc.com:443 ["[tls11 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA]"]
-[tls-version] [ssl] [info] szrsa.sutpc.com:8443 ["tls11"]
-[weak-cipher-suites:tls-1.1] [ssl] [low] szrsa.sutpc.com:8443 ["[tls11 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA]"]
-[tls-version] [ssl] [info] qn.sutpc.com:443 ["tls11"]
-[tls-version] [ssl] [info] szrsa.sutpc.com:8443 ["tls12"]
-[tls-version] [ssl] [info] qn.sutpc.com:443 ["tls12"]
-[tls-version] [ssl] [info] szrsa.sutpc.com:8443 ["tls13"]
-[tls-version] [ssl] [info] qn.sutpc.com:443 ["tls13"]
-[tls-version] [ssl] [info] ones.sutpc.com:443 ["tls12"]
-[tech-detect:nginx] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:strict-transport-security] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:content-security-policy] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:x-frame-options] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:x-content-type-options] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:permissions-policy] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:referrer-policy] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:clear-site-data] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://qn.sutpc.com:443
-[http-missing-security-headers:strict-transport-security] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:permissions-policy] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:x-frame-options] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:referrer-policy] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:clear-site-data] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:content-security-policy] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:x-content-type-options] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://szrsa.sutpc.com:8443
-[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://ones.sutpc.com/project/
-[http-missing-security-headers:x-frame-options] [http] [info] https://ones.sutpc.com/project/
-[http-missing-security-headers:referrer-policy] [http] [info] https://ones.sutpc.com/project/
-[http-missing-security-headers:clear-site-data] [http] [info] https://ones.sutpc.com/project/
-[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://ones.sutpc.com/project/
-[http-missing-security-headers:content-security-policy] [http] [info] https://ones.sutpc.com/project/
-[http-missing-security-headers:permissions-policy] [http] [info] https://ones.sutpc.com/project/
-[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://ones.sutpc.com/project/
-[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://ones.sutpc.com/project/
-[openresty-detect] [http] [info] https://qn.sutpc.com:443
-[nginx-version] [http] [info] https://szrsa.sutpc.com:8443 ["nginx/1.14.1"]
-[openresty-detect] [http] [info] https://ones.sutpc.com:443
-[caa-fingerprint] [dns] [info] qn.sutpc.com
-[caa-fingerprint] [dns] [info] szrsa.sutpc.com
-[caa-fingerprint] [dns] [info] ones.sutpc.com
-[dns-saas-service-detection] [dns] [info] qn.sutpc.com ["qn-sutpc-com-idvoj4z.qiniudns.com"]
-[caa-fingerprint] [dns] [info] qn.sutpc.com
-[dns-saas-service-detection] [dns] [info] qn.sutpc.com ["qn-sutpc-com-idvoj4z.qiniudns.com"]
-[ssl-issuer] [ssl] [info] qn.sutpc.com:443 ["iTranswarp"]
-[mismatched-ssl-certificate] [ssl] [info] qn.sutpc.com:443 ["CN: www.cloudcdn.site"]
-[self-signed-ssl] [ssl] [low] qn.sutpc.com:443
-[ssl-issuer] [ssl] [info] szrsa.sutpc.com:8443 ["DigiCert Inc"]
-[ssl-dns-names] [ssl] [info] szrsa.sutpc.com:8443 ["*.sutpc.com","sutpc.com"]
-[wildcard-tls] [ssl] [info] szrsa.sutpc.com:8443 ["CN: *.sutpc.com","SAN: [*.sutpc.com sutpc.com]"]
-[ssl-issuer] [ssl] [info] ones.sutpc.com:443 ["DigiCert Inc"]
-[ssl-dns-names] [ssl] [info] ones.sutpc.com:443 ["*.sutpc.com","sutpc.com"]
-[wildcard-tls] [ssl] [info] ones.sutpc.com:443 ["CN: *.sutpc.com","SAN: [*.sutpc.com sutpc.com]"]
+[external-service-interaction] [http] [info] https://ddqk-webapi.szhome.com:443
+[external-service-interaction] [http] [info] https://webapi.bbs.szhome.com:443
+[external-service-interaction] [http] [info] https://m.szhome.com:443
+[external-service-interaction] [http] [info] https://ddzf-webapi.szhome.com:443
+[external-service-interaction] [http] [info] https://img5.bbs.szhome.com:443
+[external-service-interaction] [http] [info] https://img.bbs.szhome.com:443
+[external-service-interaction] [http] [info] https://bbs.szhome.com:443
+[aspx-debug-mode] [http] [info] https://img4.szhome.com:443/Foobar-debug.aspx
+[waf-detect:nginxgeneric] [http] [info] https://img5.bbs.szhome.com:443
+[waf-detect:nginxgeneric] [http] [info] https://img.bbs.szhome.com:443
+[tls-version] [ssl] [info] webapi.bbs.szhome.com:443 ["tls12"]
+[tls-version] [ssl] [info] webapi.bbs.szhome.com:443 ["tls13"]
+[tls-version] [ssl] [info] bbs.szhome.com:443 ["tls12"]
+[tls-version] [ssl] [info] ddzf-webapi.szhome.com:443 ["tls12"]
+[tls-version] [ssl] [info] img.bbs.szhome.com:443 ["tls12"]
+[tls-version] [ssl] [info] bbs.szhome.com:443 ["tls13"]
+[tls-version] [ssl] [info] m.szhome.com:443 ["tls12"]
+[tls-version] [ssl] [info] ddzf-webapi.szhome.com:443 ["tls13"]
+[tls-version] [ssl] [info] m.szhome.com:443 ["tls13"]
+[tls-version] [ssl] [info] img5.bbs.szhome.com:443 ["tls12"]
+[tls-version] [ssl] [info] img4.szhome.com:443 ["tls12"]
+[tls-version] [ssl] [info] ddqk-webapi.szhome.com:443 ["tls12"]
+[tls-version] [ssl] [info] ddqk-webapi.szhome.com:443 ["tls13"]
+[robots-txt] [http] [info] https://img5.bbs.szhome.com:443/robots.txt
+[aspnet-version-detect] [http] [info] https://img5.bbs.szhome.com:443/%3f ["4.0.30319"]
+[robots-txt-endpoint] [http] [info] https://img5.bbs.szhome.com:443/robots.txt
+[aspnet-version-detect] [http] [info] https://img4.szhome.com:443/%3f ["4.0.30319"]
+[http-missing-security-headers:content-security-policy] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:x-frame-options] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:x-content-type-options] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:referrer-policy] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:clear-site-data] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:strict-transport-security] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:permissions-policy] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://ddzf-webapi.szhome.com:443
+[http-missing-security-headers:content-security-policy] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:x-frame-options] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:referrer-policy] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:clear-site-data] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:strict-transport-security] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:permissions-policy] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:x-content-type-options] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://webapi.bbs.szhome.com:443
+[http-missing-security-headers:strict-transport-security] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:permissions-policy] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:x-frame-options] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:referrer-policy] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:clear-site-data] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:content-security-policy] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:x-content-type-options] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://m.szhome.com:443
+[http-missing-security-headers:clear-site-data] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:content-security-policy] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:permissions-policy] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:referrer-policy] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:strict-transport-security] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:x-frame-options] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:x-content-type-options] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://bbs.szhome.com:443
+[http-missing-security-headers:referrer-policy] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:strict-transport-security] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:permissions-policy] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:x-frame-options] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:clear-site-data] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:content-security-policy] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:x-content-type-options] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://ddqk-webapi.szhome.com:443
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:strict-transport-security] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:content-security-policy] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:permissions-policy] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:x-content-type-options] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:referrer-policy] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:clear-site-data] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:x-frame-options] [http] [info] https://img5.bbs.szhome.com:443
+[http-missing-security-headers:referrer-policy] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:content-security-policy] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:x-content-type-options] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:clear-site-data] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:strict-transport-security] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:permissions-policy] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:x-frame-options] [http] [info] https://img4.szhome.com:443
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://img4.szhome.com:443
+[options-method] [http] [info] https://img5.bbs.szhome.com:443 ["OPTIONS, TRACE, GET, HEAD, POST"]
+[options-method] [http] [info] https://img4.szhome.com:443 ["OPTIONS, TRACE, GET, HEAD, POST"]
+[caa-fingerprint] [dns] [info] ddzf-webapi.szhome.com
+[caa-fingerprint] [dns] [info] img4.szhome.com
+[caa-fingerprint] [dns] [info] webapi.bbs.szhome.com
+[caa-fingerprint] [dns] [info] m.szhome.com
+[caa-fingerprint] [dns] [info] img.bbs.szhome.com
+[caa-fingerprint] [dns] [info] ddqk-webapi.szhome.com
+[caa-fingerprint] [dns] [info] bbs.szhome.com
+[caa-fingerprint] [dns] [info] img5.bbs.szhome.com
+[ssl-issuer] [ssl] [info] m.szhome.com:443 ["GoDaddy.com, Inc."]
+[ssl-dns-names] [ssl] [info] m.szhome.com:443 ["*.szhome.com","szhome.com"]
+[wildcard-tls] [ssl] [info] m.szhome.com:443 ["CN: *.szhome.com","SAN: [*.szhome.com szhome.com]"]
+[ssl-issuer] [ssl] [info] bbs.szhome.com:443 ["GoDaddy.com, Inc."]
+[ssl-dns-names] [ssl] [info] bbs.szhome.com:443 ["*.szhome.com","szhome.com"]
+[wildcard-tls] [ssl] [info] bbs.szhome.com:443 ["CN: *.szhome.com","SAN: [*.szhome.com szhome.com]"]
+[ssl-issuer] [ssl] [info] ddzf-webapi.szhome.com:443 ["GoDaddy.com, Inc."]
+[ssl-dns-names] [ssl] [info] ddzf-webapi.szhome.com:443 ["*.szhome.com","szhome.com"]
+[wildcard-tls] [ssl] [info] ddzf-webapi.szhome.com:443 ["CN: *.szhome.com","SAN: [*.szhome.com szhome.com]"]
+[ssl-issuer] [ssl] [info] ddqk-webapi.szhome.com:443 ["GoDaddy.com, Inc."]
+[ssl-dns-names] [ssl] [info] ddqk-webapi.szhome.com:443 ["*.szhome.com","szhome.com"]
+[wildcard-tls] [ssl] [info] ddqk-webapi.szhome.com:443 ["CN: *.szhome.com","SAN: [*.szhome.com szhome.com]"]
+[ssl-issuer] [ssl] [info] webapi.bbs.szhome.com:443 ["GoDaddy.com, Inc."]
+[mismatched-ssl-certificate] [ssl] [info] webapi.bbs.szhome.com:443 ["CN: *.szhome.com"]
+[ssl-dns-names] [ssl] [info] webapi.bbs.szhome.com:443 ["*.szhome.com","szhome.com"]
+[wildcard-tls] [ssl] [info] webapi.bbs.szhome.com:443 ["CN: *.szhome.com","SAN: [*.szhome.com szhome.com]"]
+[ssl-issuer] [ssl] [info] img5.bbs.szhome.com:443 ["GoDaddy.com, Inc."]
+[mismatched-ssl-certificate] [ssl] [info] img5.bbs.szhome.com:443 ["CN: *.szhome.com"]
+[ssl-dns-names] [ssl] [info] img5.bbs.szhome.com:443 ["*.szhome.com","szhome.com"]
+[wildcard-tls] [ssl] [info] img5.bbs.szhome.com:443 ["CN: *.szhome.com","SAN: [*.szhome.com szhome.com]"]
+[ssl-issuer] [ssl] [info] img.bbs.szhome.com:443 ["GoDaddy.com, Inc."]
+[mismatched-ssl-certificate] [ssl] [info] img.bbs.szhome.com:443 ["CN: *.szhome.com"]
+[ssl-dns-names] [ssl] [info] img.bbs.szhome.com:443 ["*.szhome.com","szhome.com"]
+[wildcard-tls] [ssl] [info] img.bbs.szhome.com:443 ["CN: *.szhome.com","SAN: [*.szhome.com szhome.com]"]
+[ssl-issuer] [ssl] [info] img4.szhome.com:443 ["GoDaddy.com, Inc."]
+[ssl-dns-names] [ssl] [info] img4.szhome.com:443 ["*.szhome.com","szhome.com"]
+[wildcard-tls] [ssl] [info] img4.szhome.com:443 ["CN: *.szhome.com","SAN: [*.szhome.com szhome.com]"]
